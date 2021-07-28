@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useState } from "react";
 import ChatList from "../cmps/ChatList";
 import { useDispatch, useSelector } from "react-redux";
-import {loadChats} from '../store/actions/chatActions'
+import { loadChats } from '../store/actions/chatActions'
 
 const ChatUpApp = () => {
     const [text, onChangeText] = useState("Useless Text");
@@ -17,7 +17,7 @@ const ChatUpApp = () => {
 
     if (!chats) return
     console.log('chats:', chats)
-
+    const chatListOp = { chats }
     return (
         <View>
             <Text>chatUpApp</Text>
@@ -29,7 +29,7 @@ const ChatUpApp = () => {
                 placeholder="Search Chats"
                 keyboardType="default"
             />
-            <ChatList />
+            <ChatList chatListOp={chatListOp} />
         </View>
     )
 }
