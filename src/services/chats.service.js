@@ -1,8 +1,6 @@
 import { httpService } from './http.service.js'
 
 export const chatService = {
-    chats, 
-    msg,
     query
 }
 
