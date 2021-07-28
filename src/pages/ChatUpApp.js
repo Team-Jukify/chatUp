@@ -15,7 +15,6 @@ const ChatUpApp = () => {
     }, [])
 
     if (!chats) return
-    console.log('chats:', chats)
     const chatListOp = { chats }
     return (
         <View>

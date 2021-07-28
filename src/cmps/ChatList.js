@@ -2,14 +2,14 @@ import { StyleSheet, Text, TextInput, View } from "react-native"
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { chatService } from '../services/chats.service'
+import { useSelector } from "react-redux";
 
 
-const ChatList = ({ chatListOp }) => {
-    const chats = chatListOp.chats
-    useEffect(() => {
-        console.log('chats:', chats)
-    })
+const ChatList = () => {
+    const chats = useSelector(state => state.chatReducer.chats)
+
     if (!chats) return <Text>loatext</Text>
+
     return (
         <View>
             <Text>ChatList!</Text>
@@ -18,8 +18,10 @@ const ChatList = ({ chatListOp }) => {
         </View>
     )
 }
+
 const styles = StyleSheet.create({
 
 
 });
+
 export default ChatList
