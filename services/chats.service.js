@@ -1,3 +1,9 @@
+import { httpService } from './http.service.js'
+
+export const chatService = {
+    chats
+}
+
 const msg = {
     // _id: '',
     sendBy: '', // _id
@@ -12,6 +18,10 @@ const chats = [
     { _id: 'c101', sendBy: '', type: 'txt', att: 'Hello Aviv!', seenBy: [], createdAt },
     { _id: 'c102', sendBy: '', type: 'txt', att: 'Hello Hadar!', seenBy: [], createdAt },
 ]
+
+async function query() {
+    return await httpService
+}
 
 function getNewChat() {
     return {

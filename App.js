@@ -1,15 +1,30 @@
+import { store } from './store'
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import  ChatUpApp  from './pages/ChatUpApp.js';
+import { useDispatch } from 'react-redux';
+import ChatUpApp from './pages/ChatUpApp.js';
+import { loadChats } from './store/actions/chatActions.js';
+import { Provider, useSelector } from 'react-redux';
+
 
 export default function App() {
+  // const dispatch = useDispatch()
+  // const chats = useSelector(state => state.chatsReducer.chats)
+
+  useEffect(() => {
+    // console.log(chats);
+    // dispatch(loadChats())
+  })
+
   return (
-    <View style={styles.container}>
-      <Text>Aviv is in the houseeee</Text>
-      <ChatUpApp/>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Text>Aviv is in the house</Text>
+        <ChatUpApp />
+        <StatusBar style="auto" />
+      </View>
+    </Provider>
   );
 }
 
