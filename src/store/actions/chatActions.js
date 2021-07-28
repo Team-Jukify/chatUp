@@ -1,4 +1,4 @@
-import chatService from '../../services/chats.service.js'
+import { chatService } from '../../services/chats.service.js'
 export function loadChats(filterBy) {
   return async dispatch => {
     const chats = await chatService.query(filterBy)
