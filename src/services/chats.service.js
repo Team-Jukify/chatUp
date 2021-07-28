@@ -22,7 +22,37 @@ const chats = [
 ]
 
 async function query() {
-    return await httpService
+    try {
+        return chats;
+        return await httpService.get(KEY)
+    } catch (err) {
+        console.log('err:', err)
+    }
+}
+
+async function getChatById(id) {
+    try {
+        return await httpService.get(KEY + id)
+    } catch (err) {
+        console.log('err:', err)
+    }
+}
+
+async function deleteChat(id) {
+    try {
+        return await httpService.delete(KEY + id)
+    } catch (err) {
+        console.log('Error from chatService - ', err);
+    }
+}
+
+async function saveChat(chat) {
+    try {
+        if (chat._id) return await httpService.put(KEY + chat._id, chat)
+        return await httpService.post(KEY, chat)
+    } catch (err) {
+        console.log('err:', err)
+    }
 }
 
 function getNewChat() {

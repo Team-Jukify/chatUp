@@ -8,12 +8,15 @@ import {loadChats} from '../store/actions/chatActions'
 const ChatUpApp = () => {
     const [text, onChangeText] = useState("Useless Text");
     const dispatch = useDispatch()
-    // const chats = useSelector(state => state.chatsReducer.chats)
+    const chats = useSelector(state => state.chatReducer.chats)
 
     useEffect(() => {
-        // console.log(chats);
         dispatch(loadChats())
-    })
+        console.log(chats);
+    }, [])
+
+    if (!chats) return
+    console.log('chats:', chats)
 
     return (
         <View>
