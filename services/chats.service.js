@@ -8,9 +8,9 @@ const msg = {
 }
 
 const chats = [
-    { _id: 'c100', sendBy: '', type: 'txt', att: 'Hello World!', seenBy: [], createdAt },
-    { _id: 'c101', sendBy: '', type: 'txt', att: 'Hello Aviv!', seenBy: [], createdAt },
-    { _id: 'c102', sendBy: '', type: 'txt', att: 'Hello Hadar!', seenBy: [], createdAt },
+    { _id: 'c100', sendBy: '', type: 'txt', att: 'Hello World!', seenBy: [], createdAt:'' },
+    { _id: 'c101', sendBy: '', type: 'txt', att: 'Hello Aviv!', seenBy: [], createdAt:'' },
+    { _id: 'c102', sendBy: '', type: 'txt', att: 'Hello Hadar!', seenBy: [], createdAt:'' },
 ]
 
 function getNewChat() {
@@ -26,4 +26,9 @@ function getNewChat() {
         info: { groupImg: '', desc: '' },
         created: { user: '', time: Date.now() }, // createdBy - user._id
     }
+}
+export default {
+    getNewChat,
+    chats,
+    msg
 }
