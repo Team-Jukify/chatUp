@@ -1,17 +1,18 @@
 import { StyleSheet, Text, TextInput, View } from "react-native"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react";
 import ChatList from "../cmps/ChatList";
 import { useDispatch, useSelector } from "react-redux";
+import {loadChats} from '../store/actions/chatActions'
 
 const ChatUpApp = () => {
     const [text, onChangeText] = useState("Useless Text");
     const dispatch = useDispatch()
-    const chats = useSelector(state => state.chatsReducer.chats)
+    // const chats = useSelector(state => state.chatsReducer.chats)
 
     useEffect(() => {
         // console.log(chats);
-        // dispatch(loadChats())
+        dispatch(loadChats())
     })
 
     return (

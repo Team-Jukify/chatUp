@@ -1,13 +1,13 @@
 import { StyleSheet, Text, TextInput, View } from "react-native"
 import React from 'react'
 import { useEffect, useState } from 'react';
-import ChatService from '../services/chats.service'
+import {chatService} from '../services/chats.service'
 
 const ChatList = () => {
     const [chats, setChats] = useState('')
     useEffect(() => {
-        console.log('ChatService.chats:', ChatService.chats)
-        setChats(ChatService.chats)
+        console.log('chatService.chats:', chatService)
+        setChats(chatService.chats)
     })
     if (!chats) return <Text>loatext</Text>
     return (
