@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from "react-native"
 import React from 'react'
 import { useEffect, useState } from 'react';
-import {chatService} from '../services/chats.service'
+import { chatService } from '../services/chats.service'
 
 const ChatList = () => {
     const [chats, setChats] = useState('')

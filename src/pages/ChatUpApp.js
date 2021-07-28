@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useState } from "react";
 import ChatList from "../cmps/ChatList";
 import { useDispatch, useSelector } from "react-redux";
-import {loadChats} from '../store/actions/chatActions'
+import { loadChats } from '../store/actions/chatActions'
 
 const ChatUpApp = () => {
     const [text, onChangeText] = useState("Useless Text");
@@ -12,11 +12,9 @@ const ChatUpApp = () => {
 
     useEffect(() => {
         dispatch(loadChats())
-        console.log(chats);
     }, [])
 
     if (!chats) return
-    console.log('chats:', chats)
 
     return (
         <View>

@@ -4,7 +4,6 @@ import ChatUpApp from './src/pages/ChatUpApp.js';
 import { store } from './src/store'
 import { Provider } from 'react-redux';
 
-
 export default function App() {
 
   return (
