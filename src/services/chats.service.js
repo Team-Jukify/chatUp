@@ -14,9 +14,45 @@ const msg = {
 }
 
 const chats = [
-    { _id: 'c100', sendBy: '', type: 'txt', att: 'Hello World!', seenBy: [], createdAt: Date.now() },
-    { _id: 'c101', sendBy: '', type: 'txt', att: 'Hello Aviv!', seenBy: [], createdAt: Date.now() },
-    { _id: 'c102', sendBy: '', type: 'txt', att: 'Hello Hadar!', seenBy: [], createdAt: Date.now() },
+    {
+        _id: 'c100',
+        msgs: [], // object of msg {}
+        background: { color: 'white', img: '' }, // object of {color, img}
+        isPined: false,
+        isMuted: false,
+        isGroup: true,
+        groupAtt: {
+            users: [], // array of _id's
+            created: { user: 'u101', time: Date.now() }, // createdBy - user._id
+            info: { img: '', desc: 'what doesnt kill you makes you stronger', name: 'the group' }, //if user- the desc is att(like status)
+        }
+    },
+    {
+        _id: 'c101',
+        msgs: [], // object of msg {}
+        background: { color: 'red', img: '' }, // object of {color, img}
+        isPined: false,
+        isMuted: false,
+        isGroup: true,
+        groupAtt: {
+            users: [], // array of _id's
+            created: { user: 'u102', time: Date.now() }, // createdBy - user._id
+            info: { img: '', desc: 'keep on moving', name: 'another group' }, //if user- the desc is att(like status)
+        }
+    },
+    {
+        _id: 'c102',
+        msgs: [], // object of msg {}
+        background: { color: 'white', img: '' }, // object of {color, img}
+        isPined: false,
+        isMuted: false,
+        isGroup: false,
+        groupAtt: {
+            users: [], // array of _id's
+            created: { user: '', time: Date.now() }, // createdBy - user._id
+            info: { img: '', desc: '', name: '' }, //if user- the desc is att(like status)
+        }
+    }
 ]
 
 async function query() {
@@ -56,14 +92,15 @@ async function saveChat(chat) {
 function getNewChat() {
     return {
         // _id: '',
-        users: [], // array of _id's
         msgs: [], // object of msg {}
         background: {}, // object of {color, img}
-        name: '',
-        isGroup: false,
         isPined: false,
         isMuted: false,
-        info: { groupImg: '', desc: '' },
-        created: { user: '', time: Date.now() }, // createdBy - user._id
+        isGroup: false,
+        groupAtt: {
+            users: [], // array of _id's
+            created: { user: '', time: Date.now() }, // createdBy - user._id
+            info: { img: '', desc: '', name: '' }, //if user- the desc is att(like status)
+        },
     }
 }
