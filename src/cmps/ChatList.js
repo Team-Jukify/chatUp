@@ -1,6 +1,6 @@
-import { StyleSheet, Text, TextInput, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ChatPreview from "./ChatPreview";
 
 
@@ -14,7 +14,6 @@ const ChatList = ({ chatListOp }) => {
         <View>
             <Text>ChatList!</Text>
             {chats.map((chat) => <ChatPreview key={chat._id} chat={chat}></ChatPreview>)}
-            {/* {chats.map((chat) => <Text key={chat._id}> {chat.att}</Text>)} */}
         </View>
     )
 }
