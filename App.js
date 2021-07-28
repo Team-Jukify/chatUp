@@ -6,7 +6,6 @@ import  ChatUpApp  from './pages/ChatUpApp.js';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hadar is in the houseeee</Text>
       <ChatUpApp/>
       <StatusBar style="auto" />
     </View>

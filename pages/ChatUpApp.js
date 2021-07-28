@@ -1,12 +1,32 @@
-import { Text, View } from "react-native"
+import { StyleSheet, Text, TextInput, View } from "react-native"
 import React from 'react'
+import { useState } from "react";
+import ChatList from "../cmps/ChatList";
 
 const ChatUpApp = () => {
+    const [text, onChangeText] = useState("Useless Text");
 
     return (
         <View>
             <Text>chatUpApp</Text>
+            <Text>Chats</Text>
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeText}
+                value={text}
+                placeholder="Search Chats"
+                keyboardType="default"
+            />
+            <ChatList/>
         </View>
     )
 }
+const styles = StyleSheet.create({
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        borderRadius: '10px',
+    },
+});
 export default ChatUpApp
