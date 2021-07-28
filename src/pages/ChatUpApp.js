@@ -15,7 +15,8 @@ const ChatUpApp = () => {
     }, [])
 
     if (!chats) return
-
+    console.log('chats:', chats)
+    const chatListOp = { chats }
     return (
         <View>
             <Text>chatUpApp</Text>
@@ -27,7 +28,7 @@ const ChatUpApp = () => {
                 placeholder="Search Chats"
                 keyboardType="default"
             />
-            <ChatList />
+            <ChatList chatListOp={chatListOp} />
         </View>
     )
 }
