@@ -12,7 +12,6 @@ const ChatUpApp = () => {
 
     useEffect(() => {
         dispatch(loadChats())
-        console.log(chats);
     }, [])
 
     if (!chats) return
