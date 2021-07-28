@@ -1,27 +1,19 @@
-import { StyleSheet, Text, TextInput, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import React from 'react'
-import { useEffect, useState } from 'react';
-import { chatService } from '../services/chats.service'
-import { useSelector } from "react-redux";
+import ChatPreview from "./ChatPreview";
+import GroupChatPreview from "./GroupChatPreview";
 
-
-const ChatList = () => {
-    const chats = useSelector(state => state.chatReducer.chats)
-
-    if (!chats) return <Text>loatext</Text>
+const ChatList = ({ chatListOp }) => {
+    const { chats } = chatListOp
 
     return (
         <View>
-            <Text>ChatList!</Text>
-            {chats.map((chat) => <Text key={chat._id}> {chat.att}</Text>
-            )}
+            {chats.map(chat => chat.isGroup ? <GroupChatPreview key={chat._id} chat={chat} /> : <ChatPreview key={chat._id} chat={chat} />)}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-
-
 });
 
 export default ChatList

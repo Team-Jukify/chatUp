@@ -1,17 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, Button, TextInput, Text } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import { checkLoggedinUser, login } from "../store/actions/userActions";
+import { Redirect } from "react-router-native";
 
-const LoginForm = ({ login, errMsg }) => {
-    const [username, onChangeUsername] = useState('');
-    const [password, onChangePassword] = useState('');
+const LoginPage = () => {
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.userReducer.user)
+    const [name, onChangeName] = useState('Aviv Zohar');
+    const [password, onChangePassword] = useState('1234');
+    const [errMsg, setErrMsg] = useState(null)
+
+    useEffect(() => {
+        dispatch(checkLoggedinUser())
+    })
+
+    const loginUser = async () => {
+        if (!name || !password) return setErrMsg('Please fill up all fields')
+        const userToLogin = { name, password }
+        dispatch(login(userToLogin))
+    }
+
+    if (user) {
+        return <Redirect to={{ pathname: "/chat" }}
+        />
+    }
 
     return (
         <SafeAreaView style={styles.formCon}>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeUsername}
-                placeholder="username"
-                value={username}
+                onChangeText={onChangeName}
+                placeholder="name"
+                value={name}
             />
             <TextInput
                 style={styles.input}
@@ -23,7 +44,7 @@ const LoginForm = ({ login, errMsg }) => {
             />
             {errMsg && <Text style={styles.errMsg}>{errMsg}</Text>}
             <Button
-                onPress={() => login(username, password)}
+                onPress={loginUser}
                 title="Login"
                 color="#841584"
             />
@@ -52,4 +73,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LoginForm;
+export default LoginPage;

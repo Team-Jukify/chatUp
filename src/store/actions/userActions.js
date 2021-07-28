@@ -1,4 +1,4 @@
-import userService from "../../services/userService"
+import { userService } from "../../services/users.service"
 
 export function loadUsers() {
   return async dispatch => {
@@ -11,7 +11,14 @@ export function login(userToLogin) {
   return async dispatch => {
     const user = await userService.login(userToLogin)
     if (!user) return 'Incorrect username or password';
-    userService.storage.saveUserToStorage(user)
+    const action = { type: 'LOAD_USER', user }
+    dispatch(action)
+  }
+}
+export function checkLoggedinUser() {
+  return async dispatch => {
+    const user = await userService.storage.loadUserFromStorage()
+    if (!user) return;
     const action = { type: 'LOAD_USER', user }
     dispatch(action)
   }
