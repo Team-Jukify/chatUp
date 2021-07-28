@@ -2,9 +2,17 @@ import { StyleSheet, Text, TextInput, View } from "react-native"
 import React from 'react'
 import { useState } from "react";
 import ChatList from "../cmps/ChatList";
+import { useDispatch, useSelector } from "react-redux";
 
 const ChatUpApp = () => {
     const [text, onChangeText] = useState("Useless Text");
+    const dispatch = useDispatch()
+    const chats = useSelector(state => state.chatsReducer.chats)
+
+    useEffect(() => {
+        // console.log(chats);
+        // dispatch(loadChats())
+    })
 
     return (
         <View>
@@ -17,7 +25,7 @@ const ChatUpApp = () => {
                 placeholder="Search Chats"
                 keyboardType="default"
             />
-            <ChatList/>
+            <ChatList />
         </View>
     )
 }
@@ -26,7 +34,6 @@ const styles = StyleSheet.create({
         height: 40,
         margin: 12,
         borderWidth: 1,
-        borderRadius: '10px',
     },
 });
 export default ChatUpApp

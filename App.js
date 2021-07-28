@@ -1,22 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import  ChatUpApp  from './pages/ChatUpApp.js';
+import ChatUpApp from './src/pages/ChatUpApp.js';
+import { store } from './store'
+import { Provider } from 'react-redux';
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <ChatUpApp/>
+    <Provider store={store}>
       <StatusBar style="auto" />
-    </View>
+      <ChatUpApp />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
