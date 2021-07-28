@@ -6,7 +6,6 @@ import {chatService} from '../services/chats.service'
 const ChatList = () => {
     const [chats, setChats] = useState('')
     useEffect(() => {
-        console.log('chatService.chats:', chatService)
         setChats(chatService.chats)
     })
     if (!chats) return <Text>loatext</Text>
